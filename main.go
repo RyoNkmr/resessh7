@@ -1,14 +1,20 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
-	"io/ioutil"
+	"io"
 )
 
 func main() {
-	data, err := ioutil.ReadFile("./resessh.txt")
+	data, err := Assets.Open("/resessh.txt")
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
-	fmt.Println(string(data))
+	defer data.Close()
+	b := new(bytes.Buffer)
+	io.Copy(b, data)
+	buf := b.Bytes()
+
+	fmt.Println(string(buf))
 }

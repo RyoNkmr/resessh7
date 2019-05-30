@@ -2,4 +2,6 @@
 
 https://twitter.com/resessh7
 
-inspired by https://github.com/munisystem/hifumi
+```
+$ go get github.com/RyoNkmr/resessh7
+```
